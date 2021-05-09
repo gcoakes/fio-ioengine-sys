@@ -1,0 +1,20 @@
+[package]
+name = "fio-ioengine-sys"
+version = "0.1.0"
+authors = ["Gregory C. Oakes <gregcoakes@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+cty = "0.2.1"
+
+[build-dependencies]
+bindgen = "0.58.1"
+
+[features]
+default = ["vendor"]
+vendor = []
+
+[[example]]
+name = "hello-null"
+path = "examples/hello_null.rs"
+crate-type = ["cdylib"]
