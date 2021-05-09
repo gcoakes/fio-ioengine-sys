@@ -59,8 +59,8 @@ unsafe extern "C" fn queue(td: *mut thread_data, io_u: *mut io_u) -> fio_q_statu
     if (*nd).events != 0 {
         return FIO_Q_BUSY;
     }
+    (*nd).io_us[(*nd).queued as usize] = io_u;
     (*nd).queued += 1;
-    (*nd).io_us[(*nd).queued as usize - 1] = io_u;
     FIO_Q_QUEUED
 }
 
