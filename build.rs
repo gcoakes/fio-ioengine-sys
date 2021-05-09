@@ -6,7 +6,13 @@ fn main() {
     let (fio_path, src) = match env::var("FIO_PATH") {
         Ok(fio) => (PathBuf::from(fio), "FIO_PATH"),
         _ if cfg!(feature = "vendor") => (PathBuf::from("vendor"), "vendored fio source code"),
-        _ => panic!("FIO_PATH must be specified when not using the `vendor` feature"),
+        _ => {
+            let fallback = PathBuf::from("/usr/local/src/fio");
+            if !fallback.exists() {
+                panic!("FIO_PATH must be specified when not using the `vendor` feature");
+            }
+            (fallback, "/usr/local/src/fio")
+        }
     };
 
     if !fio_path.join("fio.h").exists() {
