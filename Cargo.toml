@@ -3,6 +3,13 @@ name = "fio-ioengine-sys"
 version = "0.1.0"
 authors = ["Gregory C. Oakes <gregcoakes@gmail.com>"]
 edition = "2018"
+license = "GPL-2.0-only"
+description = "FFI bindings to fio's ioengine API."
+homepage = "https://github.com/gcoakes/fio-ioengine-sys"
+documentation = "https://docs.rs/fio-ioengine-sys"
+repository = "https://github.com/gcoakes/fio-ioengine-sys"
+readme = "README.md"
+keywords = ["ffi"]
 
 [dependencies]
 cty = "0.2.1"
